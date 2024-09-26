@@ -170,7 +170,7 @@ TEST(TBitField, or_operator_applied_to_bitfields_of_equal_size)
   EXPECT_EQ(expBf, bf1 | bf2);
 }
 
-TEST(TBitField, or_operator_applied_to_bitfields_of_non_equal_size)
+TEST(TBitField, or_operator_applied_to_bitfields_of_non_equal_size_binlen)
 {
   const int size1 = 4, size2 = 5;
   TBitField bf1(size1), bf2(size2), expBf(size2);
@@ -188,6 +188,25 @@ TEST(TBitField, or_operator_applied_to_bitfields_of_non_equal_size)
 
   EXPECT_EQ(expBf, bf1 | bf2);
 }
+
+
+TEST(TBitField, or_operator_applied_to_bitfields_of_non_equal_size_memlen)
+{
+    const int size1 = 4, size2 = sizeof(TELEM) * 8 + 5;
+    TBitField bf1(size1), bf2(size2), expBf(size2);  // поле Memlen bf1 и bf2 различно
+    // bf1 = 0011
+    bf1.SetBit(2);
+    bf1.SetBit(3);
+    // bf имеет один единичный бит с номером 33
+    bf2.SetBit(33);
+
+    expBf.SetBit(2);
+    expBf.SetBit(3);
+    expBf.SetBit(33);
+
+    EXPECT_EQ(expBf, bf1 | bf2);
+}
+
 
 TEST(TBitField, and_operator_applied_to_bitfields_of_equal_size)
 {
