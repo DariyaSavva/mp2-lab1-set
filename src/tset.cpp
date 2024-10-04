@@ -19,9 +19,8 @@ TSet::TSet(const TSet &s): BitField(s.BitField)
 }
 
 // конструктор преобразования типа
-TSet::TSet(const TBitField &bf) : BitField(bf)
+TSet::TSet(const TBitField &bf): BitField(-1)
 {
-    MaxPower = 0;
 }
 
 TSet::operator TBitField()

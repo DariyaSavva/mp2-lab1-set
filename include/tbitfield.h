@@ -12,7 +12,7 @@
 
 using namespace std;
 
-typedef long long TELEM;
+typedef unsigned char TELEM;
 
 class TBitField
 {
