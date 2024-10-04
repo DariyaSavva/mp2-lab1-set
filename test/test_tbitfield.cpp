@@ -197,7 +197,7 @@ TEST(TBitField, or_operator_applied_to_bitfields_of_non_equal_size_memlen)
     // bf1 = 0011
     bf1.SetBit(2);
     bf1.SetBit(3);
-    // bf имеет один единичный бит с номером 33
+    // bf2 имеет один единичный бит с номером sizeof(TELEM) * 8 + 1
     bf2.SetBit(sizeof(TELEM) * 8 + 1);
 
     expBf.SetBit(2);
