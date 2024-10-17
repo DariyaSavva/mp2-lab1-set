@@ -12,11 +12,8 @@
 
 using namespace std;
 
-<<<<<<< HEAD
+
 typedef unsigned char TELEM;
-=======
-typedef long long TELEM;
->>>>>>> 41eb4f1a1a4fcd51137759bb85a6d07878b8e56c
 
 class TBitField
 {
